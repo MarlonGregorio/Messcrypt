@@ -26,7 +26,7 @@
                   Contact
                 </a>
                 <span class="navbar-item">
-                  <a class="button is-inverted">
+                  <a class="button is-inverted" href="https://github.com/MarlonGregorio/messcrypt">
                     <span class="icon">
                       <i class="fa fa-github"></i>
                     </span>
@@ -40,19 +40,48 @@
       </div>
 
       <div class="hero-body" v-if="footer_index == 1">
-        <div class="container has-text-centered">
+        <div class="container">
           <p class="title">
-            Use the terminal on the left to encrypt.
+            Encrypt a message using an image for the key
           </p>
-          <p class="subtitle">
-            Enter here
-            <span class="icon">
-              <i class="fa fa-arrow-circle-down"></i>
-            </span>
+          <p class="subtitle is-5">
+            Placeholder description goes here.
           </p>
+          <br>
+          <div class="columns">
+            <div class="column ">
+              <textarea class="textarea is-link has-fixed-size" placeholder="Enter some text here" rows="14"></textarea>
+              <br>
+              <div class="file is-medium has-name is-info">
+                <label class="file-label">
+                  <input class="file-input" type="file">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Image key
+                    </span>
+                  </span>
+                  <span class="file-name">
+                    No image selected
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="column">
+              <textarea class="textarea is-link has-fixed-size" placeholder="Output will show here" rows="14" readonly></textarea>
+              <br>
+              <button class="button is-dark">
+                <span class="file-icon">
+                  <i class="fa fa-download"></i>
+                </span>
+                Download text
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="hero-body" v-if="footer_index == 2">
         <div class="container has-text-centered">
           <p class="title">
@@ -60,7 +89,6 @@
           </p>
         </div>
       </div>
-
       <div class="hero-body" v-if="footer_index == 3">
         <div class="container has-text-centered">
           <p class="title">
@@ -68,7 +96,6 @@
           </p>
         </div>
       </div>
-
       <div class="hero-body" v-if="footer_index == 4">
        <div class="container has-text-centered">
           <p class="title">
@@ -76,7 +103,6 @@
           </p>
         </div>
       </div>
-
       <div class="hero-foot">
         <nav class="tabs is-boxed is-fullwidth">
           <div class="container">
