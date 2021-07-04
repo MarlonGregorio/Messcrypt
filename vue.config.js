@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/Messcrypt/',
+  publicPath: '/messcrypt/',
 }
