@@ -16,13 +16,13 @@
             </div>
             <div id="navbarMenuHeroC" class="navbar-menu">
               <div class="navbar-end">
-                <a class="navbar-item" :class="navbar_features" v-on:click="nav_select(0)">
+                <a class="navbar-item" :class="navbar_1" v-on:click="nav_select(1)">
+                  Home
+                </a>
+                <a class="navbar-item" :class="navbar_2" v-on:click="nav_select(2)">
                   Features
                 </a>
-                <a class="navbar-item" :class="navbar_about" v-on:click="nav_select(1)">
-                  About
-                </a>
-                <a class="navbar-item" :class="navbar_contact" v-on:click="nav_select(2)">
+                <a class="navbar-item" :class="navbar_3" v-on:click="nav_select(3)">
                   Contact
                 </a>
                 <span class="navbar-item">
@@ -38,27 +38,24 @@
           </div>
         </header>
       </div>
-
       <div class="hero-body" v-if="footer_index == 1 | footer_index == 2">
         <div class="container">
           <div id= "Encrypt info" v-if="footer_index == 1">
             <p class="title">
-              Encrypt a message using an image for the key
+              Encrypt a message using an image
             </p>
             <p class="subtitle is-5">
-              Placeholder description goes here.
+              All main image formats are supported. Encryption is done using AES 128 through the Node.js Crypto module.
             </p>
           </div>
-
           <div id= "Decrypt info" v-if="footer_index == 2">
             <p class="title">
-              Decrypt a message using an image for the key
+              Decrypt a message using an image
             </p>
             <p class="subtitle is-5">
-              Placeholder description goes here.
+              The image key must be the same one that encypted the message. The Metadata is ignored.
             </p>
           </div>
-          
           <br>
           <br>
           <div class="columns">
@@ -139,14 +136,28 @@
           </p>
         </div>
       </div>
-      <div class="hero-foot">
+      <div class="hero-body" v-if="navbar_index == 2">
+        <div class="container has-text-centered">
+           <p class="title">
+             Not yet ready to be shown
+           </p>
+         </div>
+       </div>
+       <div class="hero-body" v-if="navbar_index == 3">
+        <div class="container has-text-centered">
+           <p class="title">
+             Not yet ready to be shown
+           </p>
+         </div>
+       </div>
+      <div class="hero-foot" v-if = "navbar_index == 1">
         <nav class="tabs is-boxed is-fullwidth">
           <div class="container">
             <ul>
               <li :class="footer_1" v-on:click="footer_select(1)"><a>Encrypt</a></li>
               <li :class="footer_2" v-on:click="footer_select(2)"><a>Decrypt</a></li>
-              <li :class="footer_3" v-on:click="footer_select(3)"><a>Tutorial</a></li>
-              <li :class="footer_4" v-on:click="footer_select(4)"><a>Examples</a></li>
+              <li :class="footer_3" v-on:click="footer_select(3)"><a>Examples</a></li>
+              <li :class="footer_4" v-on:click="footer_select(4)"><a>Help</a></li>
             </ul>
           </div>
         </nav>
@@ -159,9 +170,10 @@
   let app = {};
 
   app.data = {
-      navbar_features: "",
-      navbar_about: "",
-      navbar_contact: "",
+      navbar_1: "is-active",
+      navbar_2: "",
+      navbar_3: "",
+      navbar_index: 1,
       footer_index: 1,
       footer_1: "has-text-primary is-active",
       footer_2: "has-text-white",
@@ -185,20 +197,23 @@
 
     nav_select: function(index) 
     {
-      app.data.navbar_features = "";
-      app.data.navbar_about = "";
-      app.data.navbar_contact = "";
-
+      app.data.navbar_1 = "";
+      app.data.navbar_2 = "";
+      app.data.navbar_3 = "";
+      app.data.navbar_index = index;
       switch (index)
       {
-        case 0:
-          app.data.navbar_features = "is-active";
-          break;
         case 1:
-          app.data.navbar_about = "is-active";
+          app.data.navbar_1 = "is-active";
+          app.methods.footer_select(1);
           break;
         case 2:
-          app.data.navbar_contact = "is-active";
+          app.data.navbar_2 = "is-active";
+          app.data.footer_index = -1;
+          break;
+        case 3:
+          app.data.footer_index = -1;
+          app.data.navbar_3 = "is-active";
       }
     },
 
@@ -245,7 +260,7 @@
 
       if (name_parts.length < 2)
       {
-        app.data.error_log = "Not a valid image";
+        app.data.error_log = "Invalid image key";
         app.data.image_name = file.name;
       }
       else
@@ -258,7 +273,7 @@
         }
         else
         {
-          app.data.error_log = "Not a valid image";
+          app.data.error_log = "Invalid image key";
           app.data.image_name = file.name;
         }
       }
@@ -271,12 +286,12 @@
 
       if(app.data.left_window_text == "")
       {
-        app.data.error_log = "Input text to encrypt";
+        app.data.error_log = "Missing text for encryption";
         return;
       }
       else if(app.data.image_file == undefined)
       {
-        app.data.error_log = "Missing an image for encryption";
+        app.data.error_log = "Missing image key for encryption";
         return;
       }
       else
@@ -286,13 +301,20 @@
 
       reader.addEventListener("load", function()
       {
-        let long_key = reader.result;
-        let crypto_key = crypto.createCipher("aes-128-cbc", long_key);
-        let result = crypto_key.update(app.data.left_window_text, "utf-8", "hex");
-        result += crypto_key.final("hex");
-        app.data.right_window_text = result;
-
+        try
+        {
+          let long_key = reader.result;
+          let crypto_key = crypto.createCipher("aes-128-cbc", long_key);
+          let result = crypto_key.update(app.data.left_window_text, "utf-8", "hex");
+          result += crypto_key.final("hex");
+          app.data.right_window_text = result;
+        }
+        catch(error)
+        {
+          app.data.error_log = "Failed to encrypt the message";
+        }
       }, false);
+
       reader.readAsDataURL(app.data.image_file);
     },
 
@@ -303,12 +325,12 @@
 
       if(app.data.left_window_text == "")
       {
-        app.data.error_log = "Input text to decrypt";
+        app.data.error_log = "Missing text for decryption";
         return;
       }
       else if(app.data.image_file == undefined)
       {
-        app.data.error_log = "Missing an image for decryption";
+        app.data.error_log = "Missing image key for decryption";
         return;
       }
       else
@@ -318,13 +340,20 @@
 
       reader.addEventListener("load", function()
       {
-        let long_key = reader.result;
-        let crypto_key = crypto.createDecipher("aes-128-cbc", long_key);
-        let result = crypto_key.update(app.data.left_window_text, "hex", "utf8");
-        result += crypto_key.final("utf8");
-        app.data.right_window_text = result;
-
+        try
+        {
+          let long_key = reader.result;
+          let crypto_key = crypto.createDecipher("aes-128-cbc", long_key);
+          let result = crypto_key.update(app.data.left_window_text, "hex", "utf8");
+          result += crypto_key.final("utf8");
+          app.data.right_window_text = result;
+        }
+        catch(error)
+        {
+          app.data.error_log = "Failed to decrypt the message";
+        }
       }, false);
+      
       reader.readAsDataURL(app.data.image_file);
     },
 
