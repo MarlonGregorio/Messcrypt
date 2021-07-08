@@ -123,10 +123,47 @@
         </div>
       </div>
       <div class="hero-body" v-if="footer_index == 3">
-        <div class="container has-text-centered">
+        <div class="container">
           <p class="title">
-            Not yet ready to be shown
+            Some examples of encrypted messages using images
           </p>
+          <div class = "columns has-text-centered">
+            <div class = "column">
+              <p class = "subtitle">
+                Cool looking guinea pig
+              </p>
+              <figure class="image">
+                <img src="https://i.imgur.com/ptebmwD.jpg">
+              </figure>
+              <p class = "subtitle">
+                4b5a0a59da2aea578e3749893740e94b591b28be40683eb11f1e10f8ad414a51
+              </p>
+            </div>
+            <div class = "column">
+              <p class = "subtitle">
+                Happy looking chihuahua
+              </p>
+              <figure class="image">
+                <img src="https://i.imgur.com/yszIZ8d.jpg">
+              </figure>
+              <p class = "subtitle">
+                eb8a0f3f9c865c293f24b26fbe7b57151d05cf8f18987ed1541a92f8f23a570b
+              </p>
+            </div>
+            <div class = "column">
+              <p class = "subtitle">
+                Curious looking cat
+              </p>
+              <figure class="image">
+                <img src="https://i.imgur.com/PSOyQJF.jpg">
+              </figure>
+              <p class = "subtitle">
+                0d0a449329acaa70ce6c0fbd38b7a00f9dff0ae8a3833fc4aa9ee9d20fa2ab75
+              </p>
+            </div>
+          </div>
+          <br>
+          <a href="https://www.freepik.com/photos">Photos created by freepik - www.freepik.com</a>
         </div>
       </div>
       <div class="hero-body" v-if="footer_index == 4">
