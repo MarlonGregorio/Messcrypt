@@ -5,7 +5,7 @@
         <header class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item title is-1 has-text-dark is-family-code" href="/messcrypt/">
+              <a class="navbar-item title is-1 has-text-dark is-family-code" href="/Messcrypt/">
                 Messcrypt
               </a>
               <span class="navbar-burger" data-target="navbarMenuHeroC">
@@ -26,7 +26,7 @@
                   Contact
                 </a>
                 <span class="navbar-item">
-                  <a class="button is-inverted" href="https://github.com/MarlonGregorio/messcrypt">
+                  <a class="button is-inverted" href="https://github.com/MarlonGregorio/Messcrypt">
                     <span class="icon">
                       <i class="fa fa-github"></i>
                     </span>
