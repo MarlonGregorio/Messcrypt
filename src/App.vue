@@ -122,6 +122,8 @@
           </div>
         </div>
       </div>
+
+
       <div class="hero-body" v-if="footer_index == 3">
         <div class="container">
           <p class="title">
@@ -129,37 +131,61 @@
           </p>
           <div class = "columns has-text-centered">
             <div class = "column">
-              <p class = "subtitle">
-                Cool looking guinea pig
-              </p>
-              <figure class="image">
-                <img src="https://i.imgur.com/ptebmwD.jpg">
-              </figure>
-              <p class = "subtitle">
-                4b5a0a59da2aea578e3749893740e94b591b28be40683eb11f1e10f8ad414a51
-              </p>
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://i.imgur.com/ptebmwD.jpg">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p class = "title is-4">
+                      Cool looking guinea pig
+                    </p>
+                    <p class = "subtitle">
+                      4b5a0a59da2aea578e3749893740e94b591b28be40683eb11f1e10f8ad414a51
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class = "column">
-              <p class = "subtitle">
-                Happy looking chihuahua
-              </p>
-              <figure class="image">
-                <img src="https://i.imgur.com/yszIZ8d.jpg">
-              </figure>
-              <p class = "subtitle">
-                eb8a0f3f9c865c293f24b26fbe7b57151d05cf8f18987ed1541a92f8f23a570b
-              </p>
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://i.imgur.com/yszIZ8d.jpg">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p class = "title is-4">
+                      Happy looking chihuahua
+                    </p>
+                    <p class = "subtitle">
+                      eb8a0f3f9c865c293f24b26fbe7b57151d05cf8f18987ed1541a92f8f23a570b
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class = "column">
-              <p class = "subtitle">
-                Curious looking cat
-              </p>
-              <figure class="image">
-                <img src="https://i.imgur.com/PSOyQJF.jpg">
-              </figure>
-              <p class = "subtitle">
-                0d0a449329acaa70ce6c0fbd38b7a00f9dff0ae8a3833fc4aa9ee9d20fa2ab75
-              </p>
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://i.imgur.com/PSOyQJF.jpg">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="content">
+                    <p class = "title is-4">
+                      Curious looking cat
+                    </p>
+                    <p class = "subtitle">
+                      0d0a449329acaa70ce6c0fbd38b7a00f9dff0ae8a3833fc4aa9ee9d20fa2ab75
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <br>
@@ -167,24 +193,104 @@
         </div>
       </div>
       <div class="hero-body" v-if="footer_index == 4">
-       <div class="container has-text-centered">
-          <p class="title">
-            Not yet ready to be shown
-          </p>
+        <div class="container">
+          <div class="content">
+            <div class = "title">
+              Having Issues?
+            </div>
+            <div class = "subtitle">
+              Here are some potential solutions.
+            </div>
+            <h3>The same message is encrypting differently</h3>
+            <ol>
+              <li>Check if your message has the same letter case each time. Even a single letter being uppercase can result in a new encryption.</li>
+              <li>Check if the image is the same. It has to be an exact copy beside its metadata.</li>
+              <li>Make sure you clicked the encrypt button. The oldest encryption is alway shown.</li>
+            </ol>
+            <h3>Decryption is not working</h3>
+            <p>
+              Decryption will only work with text in hex format because a hex format string is the result of encryption. 
+              Also for the image key to decrypt properly, it has to be exactly the same image used for encryption. 
+              The name of the file and other metadata will not affect decryption. 
+            </p>
+            <h3>Forgot/Lost the image key</h3>
+            <p>
+              There is no limit to the number of times you can try to decrypt. 
+              Try all the images you think might work.
+              If you lost the image and cant recreate it in an exact pixel format, there is not much that can be done.
+            </p>
+            <h3>Issues with nested encryption</h3>
+            <p>
+              Nested encryption is when you encrypt a message that has already been encrypted. 
+              If done multiple times it can get confusing if different image keys are used. 
+              Also maybe just avoid using nested encryption as a single encryption should be secure enough.
+            </p>
+          </div>
         </div>
       </div>
       <div class="hero-body" v-if="navbar_index == 2">
-        <div class="container has-text-centered">
-           <p class="title">
-             Not yet ready to be shown
-           </p>
+        <div class="container">
+           <div class = "content">
+            <div class = "title">
+              Features about this project
+            </div>
+            <div class = "subtitle">
+              Find out what is being used.
+            </div>
+            <h3>Hosted on github pages</h3>
+            <p>
+              The repository is located at <a href = "https://github.com/MarlonGregorio/Messcrypt">github.com/MarlonGregorio/Messcrypt</a>.
+            </p>
+            <h3>Vue JS</h3>
+            <p>
+              "Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. 
+              Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. 
+              The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. 
+              On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with
+              modern tooling and supporting libraries." -Vue.js documentation
+              <br>
+              <a href = "https://py4web.com/_documentation/static/index.html ">https://py4web.com</a>
+            </p>
+            <h3>Crypto</h3>
+            <p>
+              "The crypto module provides cryptographic functionality that includes a set of wrappers for OpenSSL's hash, HMAC, cipher, decipher, 
+              sign, and verify functions." -Crypto documentation
+              <br>
+              <a href = "https://nodejs.org/api/crypto.html#crypto_crypto">https://nodejs.org/api/crypto.html#crypto_crypto</a>
+            </p>
+            <h3>Bulma CSS</h3>
+            <p>
+              "Bulma is a free, open-source CSS framework based on Flexbox and used by more than 200,000 developers. 
+              Bulma is also considered a mobile-first framework and optimizes for vertical reading. 
+              In the end, Bulma is simply a collection of CSS classes. Write the HTML code you want." -Bulma documentation
+              <br>
+              <a href = "https://bulma.io ">https://bulma.io </a>
+            </p>
+            <h3>Font Awesome</h3>
+            <p>
+              "Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, 
+              and anything that can be done with the power of CSS." -Font Awesome documentation 
+              <br>
+              <a href = "https://fontawesome.com/v4.7.0 ">https://fontawesome.com/v4.7.0 </a>
+            </p>
+           </div>
          </div>
        </div>
        <div class="hero-body" v-if="navbar_index == 3">
-        <div class="container has-text-centered">
-           <p class="title">
-             Not yet ready to be shown
-           </p>
+        <div class="container">
+          <div class = "content">
+            <div class = "title">Questions or concerns?</div>
+            <div class = "subtitle">
+              Contact me through email.
+            </div>
+            <br>
+            <div class = "title is-4">
+              Email
+            </div>
+            <div class = "subtitle is-6">
+              marlongregorio1213@gmail.com
+            </div>
+           </div>
          </div>
        </div>
       <div class="hero-foot" v-if = "navbar_index == 1">
